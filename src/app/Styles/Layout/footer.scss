@@ -1,0 +1,42 @@
+@import'../variables';
+
+.footer {
+  height: 60px;
+  background-color: $footer-bg;
+
+  >div {
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+
+  @media(max-width: 530px) {
+    >div {
+      gap: 0px;
+    }
+  }
+
+  p {
+    color: #fff;
+    padding: 0px;
+    margin: 0px;
+  }
+
+  a {
+    color: $search-bg;
+    text-decoration: none;
+  }
+
+  ul {
+    list-style-type: none;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+    margin: 0px !important;
+    padding: 0px !important;
+  }
+
+  li {
+    color: white;
+  }
+}

@@ -1,0 +1,50 @@
+@import'_variables.scss';
+@import'_home.scss';
+
+.spinner {
+  @extend .spinner
+}
+
+.user-details {
+  @extend .home;
+  position: relative;
+
+  a {
+    text-decoration: none;
+  }
+
+  .no-data-box {
+    @extend .no-data-box;
+    width: 100%;
+  }
+
+  .back {
+    position: absolute;
+    bottom: 5%;
+    left: 50%;
+    transform: translateX(-50%);
+
+    &:hover {
+      .arrow {
+        position: relative;
+        animation: arrowMove 0.5s infinite linear reverse;
+      }
+    }
+  }
+
+  @keyframes arrowMove {
+    from {
+      left: 0;
+    }
+
+    to {
+      left: 10px;
+    }
+  }
+
+  @media screen and (max-width: 767px) {
+    .card-body {
+      text-align: center;
+    }
+  }
+}

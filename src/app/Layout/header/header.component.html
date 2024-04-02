@@ -1,0 +1,21 @@
+<header class="header">
+  <div class="container">
+    <div class="row">
+      <div class="col-4 ">
+        <div class="logo h1">Cardify</div>
+      </div>
+      <div class="col-8 d-flex align-items-center">
+        <form [formGroup]="searchForm" class=" search" role="search">
+          <i class="fa fa-search" aria-hidden="true"></i>
+          <input class="form-control me-2 rounded-pill" [ngClass]="{'is-invalid':search?.dirty && search?.errors,
+                        'is-valid':!search?.dirty && !search?.errors}" formControlName="search" type="search"
+            placeholder="Find User by Id" aria-label="Search">
+          <div class="invalid-feedback text-center alert alert-danger message" role="alert">
+            Please enter only numeric characters
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- <app-spinner></app-spinner> -->

@@ -1,0 +1,55 @@
+@import'../_variables.scss';
+
+.header {
+  background-color: $header-bg;
+  min-height: 80px;
+  padding: 10px 0px;
+  display: flex;
+  align-items: center;
+
+  .logo {
+    color: $logo-color;
+    font-weight: 800;
+  }
+
+  .search {
+    position: relative;
+    width: 50% !important;
+
+    .message {
+      padding: 5px;
+      width: 80%;
+      margin: 7px auto;
+    }
+
+    >i {
+      color: white;
+      position: absolute;
+      top: 10px;
+      left: 20px;
+    }
+
+    >input {
+      padding-left: 50px;
+      background-color: $search-bg;
+      border: none;
+
+      &:focus {
+        box-shadow: none;
+        color: #fff;
+      }
+
+      &::placeholder {
+        font-size: 14px;
+        color: #fff;
+        font-weight: 500;
+      }
+    }
+  }
+
+  @media(max-width:990px) {
+    .search {
+      width: 100% !important;
+    }
+  }
+}

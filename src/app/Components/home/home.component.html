@@ -1,0 +1,29 @@
+<ngx-spinner bdColor="rgba(0, 0, 0, 0.8)" size="medium" color="#fff" type="square-jelly-box" [fullScreen]="true">
+  <app-spinner class="spinner"></app-spinner>
+  <p style="color: white"> Loading... </p>
+</ngx-spinner>
+
+<div class="home" *ngIf="isLoaded">
+  <div class="container py-5">
+    <div class="row text-center d-flex justify-content-center align-items-center" *ngIf="users.length > 0">
+      <div class="col-lg-4 col-md-6 d-flex justify-content-center" *ngFor="let user of users">
+        <div class="card m-3" style="width: 20rem;">
+          <div class="card-img-top d-flex justify-content-center align-items-center pt-5 px-5 pb-3"
+            (click)="GetCardDetails(user.id)">
+            <img [src]="user.avatar" class="image" alt="{{user.first_name}} avatar">
+          </div>
+          <div class="card-body">
+            <h2 class="card-title">{{user.first_name}} {{user.last_name}}</h2>
+            <a mat-flat-button class="contant px-5" href="mailto:{{user.email}}" target="_blank">Contact</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="no-data-box" *ngIf="users.length==0">
+      <span>No Data Found</span>
+    </div>
+  </div>
+  <mat-paginator class="pagination" [length]="totalItems" [hidePageSize]="true" [pageSize]="pageSize"
+    (page)="onPageChange($event)" aria-label="Select page" *ngIf="users.length > 0">
+  </mat-paginator>
+</div>
