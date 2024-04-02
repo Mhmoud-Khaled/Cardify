@@ -12,15 +12,14 @@ import { HttpErrorResponse } from '@angular/common/http';
 @Component({
   selector: 'app-user-details',
   templateUrl: './user-details.component.html',
-  styleUrl: './user-details.component.scss'
 })
 export class UserDetailsComponent implements OnInit {
 
-  isLoaded: boolean = false;
+  isLoaded: boolean = false;  // Flag to check if data has been loaded or not
   userDetials!: IUserDetails
   userId!: number
 
-  isDataFound: boolean = true
+  isDataFound: boolean = true  // Flag to indicate whether the requested data was found or not
 
   constructor(
     private _HttpService: HttpService,
@@ -33,16 +32,16 @@ export class UserDetailsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.userId = this._ActivatedRoute.snapshot.params['id']
+    this.userId = this._ActivatedRoute.snapshot.params['id']  //  Get the id of the user whose details are being
     this.GetUserDetails(this.userId)
 
-    this._DataService.isDataChange.subscribe((isChanged) => {
+    this._DataService.isDataChange.subscribe((isChanged) => {  // flage return to search bar value is changed or not to get data of this user id
       if (isChanged == true) {
         this._DataService.getData().subscribe((res: any) => {
           if (res != null && res != '') {
             this.GetUserDetails(res)
           } else {
-            this.BackToListPage()
+            this.BackToListPage()  //  Redirecting back to list page if search value is empty
           }
         })
       }
@@ -57,13 +56,14 @@ export class UserDetailsComponent implements OnInit {
       this._SpinnerService.show()
       let httpEndPoint = HttpEndPoints.user.getUserById
       httpEndPoint = httpEndPoint.replace('{id}', String(id))
-      const cachedData = this._HttpService.GetDataById(id, httpEndPoint).subscribe((res) => {
+      this._HttpService.GetDataById(id, httpEndPoint).subscribe((res) => {
+        // assigning response data to varaiable
         this.userDetials = res;
         this.isLoaded = true
         this.isDataFound = true
         this._SpinnerService.hide();
       }, (err: HttpErrorResponse) => {
-        this._ToastrService.error('No Data Found')
+        this._ToastrService.error('No Data Found') // show notification  message if no data fetched
         this.isDataFound = false
         this._SpinnerService.hide();
       })
@@ -71,7 +71,7 @@ export class UserDetailsComponent implements OnInit {
   }
 
   BackToListPage() {
-    this._Router.navigateByUrl(RoutePaths.home.UserList)
+    this._Router.navigateByUrl(RoutePaths.home.UserList)  // redirect user to User List Page
   }
 
 }

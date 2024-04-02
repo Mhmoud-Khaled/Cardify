@@ -7,6 +7,10 @@ import { Subject } from 'rxjs';
 })
 export class PaginationService implements MatPaginatorIntl {
 
+  /*
+    service handle pagination label using angular material
+  */
+
   changes = new Subject<void>();
 
   firstPageLabel = `First page`;

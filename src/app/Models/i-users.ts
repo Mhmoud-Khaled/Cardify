@@ -1,4 +1,4 @@
-
+// request and response all models
 export interface IUsersData {
   id: number;
   email: string;

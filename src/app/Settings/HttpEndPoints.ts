@@ -1,3 +1,5 @@
+// set all HttpEndPoints in one file and each class is an object to handle APIs maintenance
+
 export class HttpEndPoints {
 
   public static user = {

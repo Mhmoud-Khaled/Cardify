@@ -9,8 +9,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { NgxSpinnerModule } from 'ngx-spinner';
-import { SpinnerComponent } from '../Layout/spinner/spinner.component';
 import { LayoutModule } from '../Layout/layout.module';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 
 
@@ -18,7 +18,7 @@ import { LayoutModule } from '../Layout/layout.module';
   declarations: [
     HomeComponent,
     UserDetailsComponent,
-    // SpinnerComponent
+    NotFoundComponent,
   ],
   imports: [
     CommonModule,

@@ -6,6 +6,8 @@ import { BehaviorSubject, Observable } from 'rxjs';
 })
 export class DataService {
 
+  // service to transition data from components that are not children to other using RxJs library
+
   private dataSubject: BehaviorSubject<any> = new BehaviorSubject<any>(null);
   public isDataChange: BehaviorSubject<boolean> = new BehaviorSubject(false);
 

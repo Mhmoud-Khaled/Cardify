@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { RoutePaths } from '../Settings/RoutePaths';
 import { HomeComponent } from '../Components/home/home.component';
 import { UserDetailsComponent } from '../Components/user-details/user-details.component';
+import { NotFoundComponent } from '../Components/not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -15,6 +16,10 @@ const routes: Routes = [
   {
     path: RoutePaths.home.UserDetails,
     component: UserDetailsComponent
+  },
+  {
+    path: '**',
+    component: NotFoundComponent
   }
 ];
 

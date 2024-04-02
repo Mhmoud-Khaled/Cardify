@@ -9,6 +9,13 @@ import { Observable, of, tap } from 'rxjs';
 })
 export class HttpService {
 
+  /*
+    serviceto handel Http Requests according to servers (core, docs, etc..) by set initial URL
+    to specific ip address and handling errors alse use cache data service
+
+    but here we use one server
+  */
+
   constructor(private HttpClient: HttpClient, private cacheService: CacheService) { }
 
   Get<T>(endPoint: string) {

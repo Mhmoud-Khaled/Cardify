@@ -15,17 +15,19 @@ export class HeaderComponent implements OnInit {
     private _FormBuilder: FormBuilder,
   ) {
     this.searchForm = this._FormBuilder.group({
-      search: ['', [Validators.pattern('^[0-9]*$')]]
+      search: ['', [Validators.pattern('^[0-9]*$')]]  //  Allow only numbers in the input field
     });
 
   }
 
+  //  Function to get the value of form control
   get search(): AbstractControl | null {
     return this.searchForm.get("search");
   }
 
   ngOnInit(): void {
 
+    // observable  for listening any changes on "search" form control
     this.search?.valueChanges.subscribe((val) => {
       if (this.search?.valid && (val != null || val != "")) {
         this.sendData(val);
@@ -34,7 +36,7 @@ export class HeaderComponent implements OnInit {
     })
   }
   sendData(data: number): void {
-    this._DataService.setData(data);
+    this._DataService.setData(data);  // transition data from header component to other components using service
   }
 
 }

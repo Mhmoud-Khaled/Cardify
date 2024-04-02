@@ -1,0 +1,39 @@
+.not-found {
+  padding: 50px;
+  min-height: calc(100vh - 60px - 80px);
+
+  h1 {
+    font-weight: 900;
+    font-size: 48px;
+    padding: 10px;
+  }
+
+  h3 {
+    font-weight: 500;
+    font-size: 36px;
+  }
+
+  // .back {
+  //   @extend .back
+  // }
+
+  .back {
+    margin-top: 50px;
+
+    .arrow {
+      position: relative;
+      animation: arrowMove 0.5s infinite reverse;
+    }
+
+  }
+
+  @keyframes arrowMove {
+    from {
+      left: 0;
+    }
+
+    to {
+      left: 10px;
+    }
+  }
+}
